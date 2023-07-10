@@ -1,6 +1,6 @@
 package com.company.project.entities;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 public class Make {
