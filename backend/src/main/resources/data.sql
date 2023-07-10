@@ -1,1 +1,3 @@
-INSERT INTO DB.users (first_name,last_name) VALUES ('John', 'Connors');
+USE DB;
+INSERT INTO make(name,slug) VALUES('Toyota','toyota');
+
