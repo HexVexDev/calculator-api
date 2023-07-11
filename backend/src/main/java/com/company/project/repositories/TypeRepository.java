@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TypeRepository extends JpaRepository<Type, Integer> {
-    @Query("SELECT '*' FROM Type WHERE type_id = ?1 ")
+    @Query("SELECT t FROM Type t WHERE t.type_id = ?1 ")
     public Type getTypeById(Integer typeid);
 }

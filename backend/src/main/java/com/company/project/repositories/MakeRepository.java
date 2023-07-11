@@ -5,9 +5,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface MakeRepository extends JpaRepository<Make, Integer> {
-
-    @Query("SELECT '*' FROM Make WHERE make_id = ?1 ")
+    //Retrieve Make by Id(All data)
+    @Query("SELECT m FROM Make m WHERE m.make_id = ?1 ")
     public Make getMakeById(Integer makeid);
+
+    //Retrieve Make by Name
+    @Query("SELECT m FROM Make m WHERE m.make_name = ?1 ")
+    public Make getMakeByName(String makename);
 }

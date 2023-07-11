@@ -33,7 +33,7 @@ public class Model {
     public void setModel_name (String model_name){this.model_name = model_name;}
 
     public String getModel_slug(){return model_slug;}
-    public void setModel_id (String model_slug){this.model_slug = model_slug;}
+    public void setModel_slug (String model_slug){this.model_slug = model_slug;}
 
     public Make getModel_makeid(){return fk_model_make;}
 
