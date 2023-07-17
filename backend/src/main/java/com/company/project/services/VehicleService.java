@@ -31,14 +31,7 @@ public class VehicleService{
     }
 
     public void updateVehicleInfo(Vehicle vehicle){
-         VehicleRepository.updateVehicleInfo(
-                vehicle.getVehicle_name(),
-                vehicle.getVehicle_price(),
-                vehicle.getVehicle_vin(),
-                vehicle.getVehicle_makeid(),
-                vehicle.getVehicle_modelid(),
-                vehicle.getId()
-        );
+         VehicleRepository.save(vehicle);
     }
 
 }

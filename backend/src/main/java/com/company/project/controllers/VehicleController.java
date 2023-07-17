@@ -25,6 +25,9 @@ public class VehicleController {
     public Vehicle saveVehicle(@RequestBody Vehicle vehicle){
         return this.service.saveVehicle(vehicle);
     }
+
+    @DeleteMapping()
+    public void deleteVehicle(@RequestBody Integer vehicle_id) {service.deleteVehiclebyId(vehicle_id);}
 }
 
 

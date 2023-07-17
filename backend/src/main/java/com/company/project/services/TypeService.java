@@ -18,7 +18,7 @@ public class TypeService{
         return(ArrayList<Type>) TypeRepository.findAll();
     }
 
-    public Type saveModel(Type type){
+    public Type saveType(Type type){
         return TypeRepository.save(type);
     }
 

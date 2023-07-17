@@ -1,6 +1,6 @@
 package com.company.project.entities;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 
 @Entity
@@ -36,7 +36,7 @@ public class Vehicle {
     private Make fk_vehicle_make;
 
     @ManyToOne(fetch = FetchType.LAZY )
-    @JoinColumn(name="model")
+    @JoinColumn(name="model_id")
     private Model fk_vehicle_model;
     //Setters and getters
     public int getId(){ return id;}
