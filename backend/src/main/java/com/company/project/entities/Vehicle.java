@@ -9,10 +9,10 @@ public class Vehicle {
     //All field declaration for ORM
     @Id
     @Column(name = "vehicle_id")
-    private int id;
+    private int vehicle_id;
 
     @Basic
-    @Column(name = "slug")
+    @Column(name = "vehicle_slug")
     private String vehicle_slug;
 
     @Basic
@@ -31,17 +31,17 @@ public class Vehicle {
     @Column(name="vehicle_vin")
     private String vehicle_vin;
     //Foreign Key relationship declaration
-    @ManyToOne(fetch = FetchType.LAZY )
-    @JoinColumn(name="make_id")
+    @ManyToOne(targetEntity = Make.class)
+    @JoinColumn(name="make_id",referencedColumnName = "make_id")
     private Make fk_vehicle_make;
 
-    @ManyToOne(fetch = FetchType.LAZY )
-    @JoinColumn(name="model_id")
+    @ManyToOne(targetEntity = Model.class)
+    @JoinColumn(name="model_id",referencedColumnName = "model_id")
     private Model fk_vehicle_model;
     //Setters and getters
-    public int getId(){ return id;}
+    public int getId(){ return vehicle_id;}
 
-    public void setId(int id){this.id = id;}
+    public void setId(int id){this.vehicle_id = id;}
 
     public String getVehicle_slug(){return vehicle_slug;}
     public void setVehicle_slug (String vehicle_slug){this.vehicle_slug = vehicle_slug;}

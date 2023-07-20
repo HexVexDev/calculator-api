@@ -1,4 +1,4 @@
 USE DB;
-INSERT INTO make(name,slug) VALUES('Toyota','toyota');
-INSERT INTO type(name) VALUES('Sedan');
+INSERT INTO make(make_name,make_slug) VALUES('Toyota','toyota');
+INSERT INTO type(type_name) VALUES('Sedan');
 

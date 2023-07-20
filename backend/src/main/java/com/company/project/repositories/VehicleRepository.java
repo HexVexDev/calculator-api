@@ -13,10 +13,10 @@ import org.springframework.stereotype.Repository;
 public interface VehicleRepository extends JpaRepository<Vehicle,Integer> {
 
 
-    @Query("SELECT v FROM Vehicle v WHERE v.id =?1")
+    @Query("SELECT v FROM Vehicle v WHERE v.vehicle_id =?1")
     Vehicle getVehicleById(Integer vehicleid);
     @Modifying
-    @Query("DELETE FROM Vehicle v WHERE v.id =?1")
+    @Query("DELETE FROM Vehicle v WHERE v.vehicle_id =?1")
     Vehicle deleteVehicleById(Integer vehicleid);
 
 

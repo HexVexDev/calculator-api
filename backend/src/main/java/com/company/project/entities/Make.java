@@ -10,11 +10,11 @@ public class Make {
     private int make_id;
 
     @Basic
-    @Column(name= "name")
+    @Column(name= "make_name")
     private String make_name;
 
     @Basic
-    @Column(name = "slug")
+    @Column(name = "make_slug")
     private String make_slug;
 
     public int getId(){ return make_id;}

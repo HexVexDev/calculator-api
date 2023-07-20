@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/types")
 public class TypeController {
 
     @Autowired
     TypeService service;
 
-    @CrossOrigin(origins = "http://localhost:3000")
+
     @GetMapping()
     public ArrayList<Type> getAllTypes(){
         return service.getAllTypes();

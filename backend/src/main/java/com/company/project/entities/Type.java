@@ -10,7 +10,7 @@ public class Type {
     private int type_id;
 
     @Basic
-    @Column(name="name")
+    @Column(name="type_name")
     private String type_name;
 
     public int getId(){ return type_id;}

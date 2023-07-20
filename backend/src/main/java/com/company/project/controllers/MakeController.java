@@ -9,20 +9,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/makes")
 public class MakeController {
 
     @Autowired
     MakeService service;
 
-    @CrossOrigin(origins = "http://localhost:3000")
+
     @GetMapping()
     public ArrayList<Make> getAllMakes(){
         return service.getAllMakes();
     }
 
     @PostMapping()
-    public Make saveMake(@RequestBody Make make){
-        return this.service.saveMake(make);
+    public void saveMake(@RequestBody Make make){
+         this.service.saveMake(make);
     }
 }
