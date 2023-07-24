@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 
-const TypeForm = () => {
+const TypeForm = ({setFormState}) => {
     const [type_name, setType_name] =useState('');
 
     const handleSubmit = (event) =>{
@@ -17,7 +17,7 @@ const TypeForm = () => {
             .catch((error) => {
                 console.error(error);
             });
-
+            setFormState(false);
     }
 
     return (

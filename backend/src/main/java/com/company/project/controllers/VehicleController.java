@@ -1,6 +1,7 @@
 package com.company.project.controllers;
 
 import com.company.project.dto.VehicleSaveDTO;
+import com.company.project.dto.VehicleUpdateDTO;
 import com.company.project.entities.Vehicle;
 import com.company.project.services.VehicleService;
 
@@ -29,10 +30,10 @@ public class VehicleController {
     }
 
     @PutMapping()
-    public void updateVehicle(@RequestBody Vehicle vehicle){ this.service.updateVehicleInfo(vehicle);}
+    public void updateVehicle(@RequestBody VehicleUpdateDTO mockvehicle){ this.service.updateVehicleInfo(mockvehicle);}
 
-    @DeleteMapping()
-    public void deleteVehicle(@RequestBody Integer vehicle_id) {service.deleteVehiclebyId(vehicle_id);}
+    @DeleteMapping("/{vehicle_id}")
+    public void deleteVehicle(@PathVariable Integer vehicle_id) {service.deleteVehiclebyId(vehicle_id);}
 }
 
 

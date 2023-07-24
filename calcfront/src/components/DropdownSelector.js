@@ -13,6 +13,8 @@ import TypeList from './listViews/TypeList';
 function DropdownSelector() {
   const [data, setData] = useState([]);
   const [view,setView] = useState('');
+  const [formState,setFormState] = useState(false);
+ 
 
   const handleViewChange = (e) => {
     setView(e.target.value);
@@ -29,7 +31,7 @@ function DropdownSelector() {
           console.error(error);
         });
     }
-  }, [view]);
+  }, [view,formState]);
 
   return (
     <div>
@@ -51,10 +53,18 @@ function DropdownSelector() {
       
         <div>
           <h2>Add a new item</h2>
-          {view === 'vehicles' && <VehicleForm />}
-          {view === 'models' && <ModelForm />}
-          {view === 'makes' && <MakeForm />}
-          {view === 'types' && <TypeForm />}
+          <button onClick={() =>setFormState(true)}>+</button>
+          {formState ?(
+            <>
+          {view === 'vehicles' && <VehicleForm setFormState={setFormState}/>}
+          {view === 'models' && <ModelForm setFormState={setFormState}/>}
+          {view === 'makes' && <MakeForm setFormState={setFormState}/>}
+          {view === 'types' && <TypeForm setFormState={setFormState}/>}
+          </>
+          ):(
+            <></>
+          )}
+          
         </div>
         
       </div>

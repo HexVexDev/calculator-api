@@ -17,7 +17,7 @@ public interface VehicleRepository extends JpaRepository<Vehicle,Integer> {
     Vehicle getVehicleById(Integer vehicleid);
     @Modifying
     @Query("DELETE FROM Vehicle v WHERE v.vehicle_id =?1")
-    Vehicle deleteVehicleById(Integer vehicleid);
+    void deleteVehicleById(Integer vehicleid);
 
 
 

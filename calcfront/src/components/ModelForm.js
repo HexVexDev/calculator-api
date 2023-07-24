@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-const ModelForm = () => {
+const ModelForm = ({setFormState}) => {
     const [makedata, setMakedata] = useState([]); // Initialize with an empty array
     const [typedata, setTypedata] = useState([]); // Initialize with an empty array
     const [model_name, setModel_name] =useState('');
@@ -57,7 +57,7 @@ const ModelForm = () => {
             .catch((error) => {
                 console.error(error);
             });
-
+            setFormState(false);
     }
 
     return (

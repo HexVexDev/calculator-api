@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-const VehicleForm = () => {
+const VehicleForm = ({setFormState}) => {
     const [makedata, setMakedata] = useState([]); // Initialize with an empty array
     const [modeldata, setModeldata] = useState([]); // Initialize with an empty array
     const [vehicle_slug, setVehicle_slug] =useState('');
@@ -59,7 +59,7 @@ const VehicleForm = () => {
             .catch((error) => {
                 console.error(error);
             });
-
+            setFormState(false);
     }
 
     return (

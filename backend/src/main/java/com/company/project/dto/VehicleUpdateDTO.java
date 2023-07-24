@@ -5,17 +5,17 @@ import com.company.project.entities.Vehicle;
 
 import java.util.Objects;
 
-public class VehicleSaveDTO {
+public class VehicleUpdateDTO {
     private Vehicle vehicle;
     private Integer make_id;
     private Integer model_id;
 
     // No-arguments constructor
-    public VehicleSaveDTO() {
+    public VehicleUpdateDTO() {
     }
 
     // Constructor with Model parameter
-    public VehicleSaveDTO(Vehicle vehicle) {
+    public VehicleUpdateDTO(Vehicle vehicle) {
         this.vehicle = vehicle;
     }
 
@@ -48,7 +48,7 @@ public class VehicleSaveDTO {
     // toString() method
     @Override
     public String toString() {
-        return "VehicleSaveDTO{" +
+        return "VehicleUpdateDTO{" +
                 "vehicle=" + vehicle +
                 '}';
     }
@@ -58,7 +58,7 @@ public class VehicleSaveDTO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        VehicleSaveDTO that = (VehicleSaveDTO) o;
+        VehicleUpdateDTO that = (VehicleUpdateDTO) o;
         return Objects.equals(vehicle, that.vehicle);
     }
 

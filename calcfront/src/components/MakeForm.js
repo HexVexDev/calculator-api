@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 
-const MakeForm = () => {
+const MakeForm = ({setFormState}) => {
     const [make_name, setMake_name] = useState('');
 
     const handleSubmit = (event) => {
@@ -17,6 +17,7 @@ const MakeForm = () => {
             .catch((error) => {
                 console.error(error);
             });
+            setFormState(false);
     }
 
     return (
