@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react';
 import UpdateVehicle from '../../updates/UpdateVehicle';
 import axios from 'axios';
 
-const VehicleItem = ({id,vehicle_make,vehicle_model,vehicle_name,vehicle_price,vehicle_slug,vehicle_vin,vehicle_year}) => {
+const VehicleItem = ({id,make_name,model_name,vehicle_name,vehicle_price,vehicle_slug,vehicle_vin,vehicle_year}) => {
     const [updateState,setUpdateState] = useState(false);
    useEffect(()=>{
 
@@ -15,8 +15,8 @@ const VehicleItem = ({id,vehicle_make,vehicle_model,vehicle_name,vehicle_price,v
             <td colSpan="8">
               <UpdateVehicle
                 id={id}
-                vehicle_make={vehicle_make}
-                vehicle_model={vehicle_model}
+                vehicle_make={make_name}
+                vehicle_model={model_name}
                 vehicle_name={vehicle_name}
                 vehicle_price={vehicle_price}
                 vehicle_slug={vehicle_slug}
@@ -33,8 +33,8 @@ const VehicleItem = ({id,vehicle_make,vehicle_model,vehicle_name,vehicle_price,v
               <td>{vehicle_year}</td>
               <td>{vehicle_price}</td>
               <td>{vehicle_vin}</td>
-              <td>{vehicle_make}</td>
-              <td>{vehicle_model}</td>
+              {make_name&&<td>{make_name}</td>}
+              {model_name&&<td>{model_name}</td>}
               <td>
                 <button
                   className="btn btn-success btn-number"

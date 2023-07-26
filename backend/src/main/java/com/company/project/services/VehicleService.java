@@ -47,8 +47,7 @@ public class VehicleService{
     }
 
     public void updateVehicleInfo(VehicleUpdateDTO mockvehicle){
-        var vehicle = new Vehicle();
-        vehicle.setId(mockvehicle.getVehicle().getId());
+        var vehicle = VehicleRepository.getVehicleById(mockvehicle.getVehicle().getId());
         vehicle.setVehicle_name(mockvehicle.getVehicle().getVehicle_name());
         vehicle.setVehicle_vin(mockvehicle.getVehicle().getVehicle_vin());
         vehicle.setVehicle_year(mockvehicle.getVehicle().getVehicle_year());

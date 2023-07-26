@@ -24,7 +24,9 @@ function DropdownSelector() {
     if (view) {
       axios.get(`http://localhost:8080/${view}`)
         .then((response) => {
+          console.log("Full response data ");
           console.log(response.data);
+          console.log("------------------");
           setData(response.data);
         })
         .catch((error) => {

@@ -1,17 +1,17 @@
 import React from 'react';
 
 
-const ModelItem = ({ id, model_name, model_slug, model_make, model_type }) => {
+const ModelItem = ({ model_id, model_name, model_slug,make_name,type_name }) => {
 
     
     return (
         
         <tr>
-        <td>{id}</td>
+        <td>{model_id}</td>
         <td>{model_name}</td>
         <td>{model_slug}</td>
-        <td>{model_make}</td>
-        <td>{model_type}</td>
+        {make_name&&<td>{make_name}</td>}
+        {type_name&&<td>{type_name}</td>}
        
         </tr>
     );

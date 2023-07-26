@@ -46,24 +46,5 @@ public class VehicleUpdateDTO {
     }
 
     // toString() method
-    @Override
-    public String toString() {
-        return "VehicleUpdateDTO{" +
-                "vehicle=" + vehicle +
-                '}';
-    }
 
-    // equals() and hashCode() methods
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        VehicleUpdateDTO that = (VehicleUpdateDTO) o;
-        return Objects.equals(vehicle, that.vehicle);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(vehicle);
-    }
 }

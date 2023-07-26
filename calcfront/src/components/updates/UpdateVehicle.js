@@ -38,7 +38,7 @@ const UpdateVehicle = ({id,vehicle_make,vehicle_model,vehicle_name,vehicle_price
     const handleSubmit = (event) =>{
         event.preventDefault();
         const vehicle = {
-            vehicle_id:nvehicle_id,
+            id:nvehicle_id,
             vehicle_slug:nvehicle_slug,
             vehicle_name:nvehicle_name,
             vehicle_year:parseInt(nvehicle_year),

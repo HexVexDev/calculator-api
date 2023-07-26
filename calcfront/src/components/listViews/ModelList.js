@@ -16,7 +16,12 @@ const ModelList = ({data}) =>{
   </thead>
     <tbody>
     {data.map((model) => (
-        console.log(model)
+        <ModelItem  key={model.model_id}
+        model_id={model.model_id}
+        model_name={model.model_name}
+        model_slug={model.model_slug}
+        make_name={model.fk_model_make?.make_name}
+        type_name={model.fk_model_type?.type_name}/>
     ))}
     </tbody>
 </table>
