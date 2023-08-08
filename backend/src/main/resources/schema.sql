@@ -31,3 +31,8 @@ model_id INT NOT NULL,
 FOREIGN KEY (make_id) REFERENCES make(make_id) ,
 FOREIGN KEY (model_id) REFERENCES model(model_id)
 );
+
+CREATE TABLE IF NOT EXISTS users(
+  username varchar(20) NOT NULL,
+  password varchar(10) NOT NULL
+)

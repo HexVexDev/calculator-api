@@ -10,11 +10,11 @@ public class Users {
     @Column(name = "id")
     private int id;
     @Basic
-    @Column(name = "first_name")
-    private String firstName;
+    @Column(name = "username")
+    private String username;
     @Basic
-    @Column(name = "last_name")
-    private String lastName;
+    @Column(name = "password")
+    private String password;
 
     public int getId() {
         return id;
@@ -24,32 +24,21 @@ public class Users {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public void setUsername(String username){this.username=username;}
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public String getPassword() {
+        return password;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Users users = (Users) o;
-        return id == users.id && Objects.equals(firstName, users.firstName) && Objects.equals(lastName, users.lastName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstName, lastName);
+    public String getUsername() {
+        return username;
     }
 }
+
+
+
+

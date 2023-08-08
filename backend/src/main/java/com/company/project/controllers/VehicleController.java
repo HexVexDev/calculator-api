@@ -24,7 +24,7 @@ public class VehicleController {
         return service.getAllVehicles();
     }
 
-    @PostMapping()
+    @PostMapping("/savevehicle")
     public Vehicle saveVehicle(@RequestBody VehicleSaveDTO vehicle){
         return this.service.saveVehicle(vehicle);
     }
