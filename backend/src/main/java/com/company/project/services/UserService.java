@@ -4,6 +4,9 @@ import com.company.project.entities.Users;
 import com.company.project.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+
 @Service
 public class UserService {
     @Autowired
@@ -11,7 +14,7 @@ public class UserService {
     public void saveUser(Users user){
         userRepo.save(user);
     }
-    public Users getUserByNameAndPassword(String name){
-        return userRepo.find(name);
+    public Optional<Users> getUserByNameAndPassword(String name){
+        return userRepo.findOneByUsername(name);
     }
 }
