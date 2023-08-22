@@ -16,8 +16,9 @@ import java.util.Collections;
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
 
-    public Authentication attemptAuthetication(HttpServletRequest request,
-                                               HttpServletResponse response) throws AuthenticationException{
+    @Override
+    public Authentication attemptAuthentication(HttpServletRequest request,
+                                               HttpServletResponse response) {
         AuthCredentials authCredentials =  new AuthCredentials();
 
         try{
@@ -32,8 +33,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         return getAuthenticationManager().authenticate(usernamePAT);
     }
 
-
-    protected void succesfulAuthentication(HttpServletRequest request,
+@Override
+    protected void successfulAuthentication(HttpServletRequest request,
                                            HttpServletResponse response,
                                            FilterChain chain,
                                            Authentication authResult) throws IOException, ServletException{
