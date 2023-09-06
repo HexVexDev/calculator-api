@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/user")
+@RequestMapping("")
 public class UserController {
     @Autowired
     private  UserService userService;
@@ -24,9 +24,5 @@ public class UserController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
         }
     }
-    @PostMapping("/login")
-    public ResponseEntity<?> loginUser(@RequestBody Users user) {
-            Optional<Users> userData = userService.getUserByNameAndPassword(user.getUsername());
-            return new ResponseEntity<>( HttpStatus.OK);
-    }
+
 }

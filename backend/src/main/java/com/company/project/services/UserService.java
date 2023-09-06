@@ -14,7 +14,4 @@ public class UserService {
     public void saveUser(Users user){
         userRepo.save(user);
     }
-    public Optional<Users> getUserByNameAndPassword(String name){
-        return userRepo.findOneByUsername(name);
-    }
 }

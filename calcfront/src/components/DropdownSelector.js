@@ -8,35 +8,60 @@ import VehicleList from './listViews/VehicleList';
 import ModelList from './listViews/ModelList';
 import MakeList from './listViews/MakeList';
 import TypeList from './listViews/TypeList';
+import {useNavigate} from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 
-function DropdownSelector() {
+function DropdownSelector({cookies}) {
+
   const [data, setData] = useState([]);
   const [view,setView] = useState('');
   const [formState,setFormState] = useState(false);
- 
+  const navigate=useNavigate();
+  const jwtToken = 'Bearer '+ cookies.get("authorization")
+  const apiInstance = axios.create({
+    baseURL: 'http://localhost:8080/', // Replace with your API base URL
+    headers: {
+      common: {
+        'Content-Type': 'application/json', // JSON content header
+        Authorization: jwtToken ? `Bearer ${jwtToken}` : '', // Add the Authorization header with the token if it exists
+      },
+    },
+  });
 
   const handleViewChange = (e) => {
     setView(e.target.value);
   };
+  const handleLogout = () => {
+   cookies.remove("authorization");
+   cookies.remove("user");
+   return navigate('/');
+
+  };
+
 
   useEffect(() => {
     if (view) {
-      axios.get(`http://localhost:8080/${view}`)
+        apiInstance.get(view)
         .then((response) => {
+          if(!response.status ===200){
+            return navigate('/login');
+          }else{
           console.log("Full response data ");
           console.log(response.data);
           console.log("------------------");
           setData(response.data);
+        }
         })
         .catch((error) => {
           console.error(error);
         });
     }
-  }, [view,formState]);
-
+  }, [view]);
   return (
     <div>
+      <p>Hello {cookies.get("user")}</p>
+      <button onClick={handleLogout}>Logout</button>
     <div> 
       <select onChange={handleViewChange}> 
         <option value="makes" id="make">Makes</option> 
@@ -47,10 +72,10 @@ function DropdownSelector() {
     </div>
 
       <div>
-        {view === 'vehicles' && <VehicleList data ={data}/>}
-        {view === 'models' && <ModelList data ={data}/>}
-        {view === 'makes' && <MakeList data ={data}/>}
-        {view === 'types' && <TypeList data ={data}/>}
+        {view === 'vehicles' && <VehicleList data ={data} apiInstance={apiInstance}/>}
+        {view === 'models' && <ModelList data ={data} apiInstance={apiInstance}/>}
+        {view === 'makes' && <MakeList data ={data} apiInstance={apiInstance}/>}
+        {view === 'types' && <TypeList data ={data} apiInstance={apiInstance}/>}
       </div>
       
         <div>
@@ -58,10 +83,10 @@ function DropdownSelector() {
           <button onClick={() =>setFormState(true)}>+</button>
           {formState ?(
             <>
-          {view === 'vehicles' && <VehicleForm setFormState={setFormState}/>}
-          {view === 'models' && <ModelForm setFormState={setFormState}/>}
-          {view === 'makes' && <MakeForm setFormState={setFormState}/>}
-          {view === 'types' && <TypeForm setFormState={setFormState}/>}
+          {view === 'vehicles' && <VehicleForm setFormState={setFormState} apiInstance={apiInstance}/>}
+          {view === 'models' && <ModelForm setFormState={setFormState} apiInstance={apiInstance}/>}
+          {view === 'makes' && <MakeForm setFormState={setFormState} apiInstance={apiInstance}/>}
+          {view === 'types' && <TypeForm setFormState={setFormState} apiInstance={apiInstance}/>}
           </>
           ):(
             <></>
@@ -74,5 +99,6 @@ function DropdownSelector() {
       
   );
 }
+
 
 export default DropdownSelector;

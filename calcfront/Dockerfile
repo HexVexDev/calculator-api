@@ -8,6 +8,8 @@ COPY package-lock.json /code/package-lock.json
 
 RUN npm ci
 RUN npm install axios
+RUN npm install universal-cookie
+RUN npm install react-router-dom
 COPY . /code
 
 ENV CI=true
