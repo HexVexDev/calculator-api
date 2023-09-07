@@ -39,6 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/register").permitAll() // Permit access to /register without authentication
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic()
@@ -76,10 +77,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
-
-        public static void main(String[] args) {
-            System.out.println("Encoded Password: " + new BCryptPasswordEncoder().encode("root"));
-        }
     }
 
 

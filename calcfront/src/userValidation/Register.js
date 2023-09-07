@@ -5,7 +5,7 @@ import {useNavigate} from 'react-router-dom';
 const Register = ({cookies}) =>{
   //Start user credentials
   const [username, setUsername] = useState('');
-  const [pass, setPass] = useState('');
+  const [password, setPassword] = useState('');
   const [passconfirm,setPassconfirm] = useState('');
   const navigate=useNavigate();
   //Handle login event, wait for API response for authorization
@@ -13,7 +13,7 @@ const Register = ({cookies}) =>{
     event.preventDefault();
     const userData = {
       username: username,
-      pass: pass
+      password: password
     };
     try {
       
@@ -38,23 +38,36 @@ const Register = ({cookies}) =>{
   return(
     <div>
     <form id='registerform' onSubmit={submitRegister}>
+            <div class="form-group">
               <label htmlFor='username'>Username:</label>
               <input
                 type='text'
                 id='username'
+                class ='form-control'
+                placeholder='Escoja un nombre de usuario'
                 onChange={(event) => setUsername(event.target.value)}
               ></input>
+              </div>
+              <div class="form-group">
               <label htmlFor='password'>Password:</label>
               <input
                 type='password'
                 id='pass'
-                onChange={(event) => setPass(event.target.value)}
+                class ='form-control'
+                placeholder='Escoja su clave'
+                onChange={(event) => setPassword(event.target.value)}
               ></input>
+              </div>
+              <div class="form-group">
+              <label htmlFor='password'>Password confirmation:</label>
               <input
                 type='password'
                 id='passconfirm'
+                class ='form-control'
+                placeholder='Ingrese su clave de nuevo'
                 onChange={(event) => setPassconfirm(event.target.value)}
               ></input>
+              </div>
               <button type='submit'>Register</button>
             </form>
             </div>

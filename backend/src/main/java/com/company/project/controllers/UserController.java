@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/register")
 public class UserController {
     @Autowired
     private  UserService userService;
 
-    @PostMapping("/register")
+    @PostMapping()
     public ResponseEntity<?> postUser(@RequestBody Users user){
         try{
             userService.saveUser(user);

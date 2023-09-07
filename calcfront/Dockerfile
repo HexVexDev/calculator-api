@@ -10,6 +10,7 @@ RUN npm ci
 RUN npm install axios
 RUN npm install universal-cookie
 RUN npm install react-router-dom
+RUN npm install bootstrap
 COPY . /code
 
 ENV CI=true

@@ -18,7 +18,7 @@ function DropdownSelector({cookies}) {
   const [view,setView] = useState('');
   const [formState,setFormState] = useState(false);
   const navigate=useNavigate();
-  const jwtToken = 'Bearer '+ cookies.get("authorization")
+  const jwtToken = 'Bearer '+ cookies.get("authorization");
   const apiInstance = axios.create({
     baseURL: 'http://localhost:8080/', // Replace with your API base URL
     headers: {
@@ -28,6 +28,7 @@ function DropdownSelector({cookies}) {
       },
     },
   });
+
 
   const handleViewChange = (e) => {
     setView(e.target.value);
@@ -41,11 +42,14 @@ function DropdownSelector({cookies}) {
 
 
   useEffect(() => {
+    if(!cookies.get("authorization")){
+      return navigate('/');
+      }else{ 
     if (view) {
         apiInstance.get(view)
         .then((response) => {
           if(!response.status ===200){
-            return navigate('/login');
+            return navigate('/');
           }else{
           console.log("Full response data ");
           console.log(response.data);
@@ -57,13 +61,14 @@ function DropdownSelector({cookies}) {
           console.error(error);
         });
     }
-  }, [view]);
+  }
+}, [view]);
   return (
     <div>
       <p>Hello {cookies.get("user")}</p>
       <button onClick={handleLogout}>Logout</button>
     <div> 
-      <select onChange={handleViewChange}> 
+      <select onChange={handleViewChange} class='form-control form-control-lg'> 
         <option value="makes" id="make">Makes</option> 
         <option value="models" id="model" selected>Models</option> 
         <option value="vehicles" id="vehicle">Vehicles</option> 
@@ -98,6 +103,7 @@ function DropdownSelector({cookies}) {
       
       
   );
+
 }
 
 

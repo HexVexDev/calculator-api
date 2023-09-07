@@ -2,18 +2,18 @@ package com.company.project.security;
 
 public class AuthCredentials {
     private String username;
-    private String pass;
+    private String password;
 
     public void setUsername(String email) {
         this.username = email;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
     public String getUsername() {

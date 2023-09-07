@@ -33,6 +33,7 @@ FOREIGN KEY (model_id) REFERENCES model(model_id)
 );
 
 CREATE TABLE IF NOT EXISTS users(
+    id int NOT NULL AUTO_INCREMENT primary key ,
   username varchar(20) NOT NULL,
   password varchar(10) NOT NULL
 )

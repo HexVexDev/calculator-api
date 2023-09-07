@@ -5,7 +5,7 @@ import {useNavigate} from 'react-router-dom';
 const Login = ({cookies}) =>{
   //Start user credentials
   const [username, setUsername] = useState('');
-  const [pass, setPass] = useState('');
+  const [password, setPassword] = useState('');
   const navigate=useNavigate();
   //Handle login event, wait for API response for authorization
   const submitLogin = async (event) => {
@@ -13,7 +13,7 @@ const Login = ({cookies}) =>{
     event.preventDefault();
     const authCredentials = {
       username: username,
-      pass: pass
+      password: password
     };
     try {
       
@@ -39,19 +39,27 @@ const Login = ({cookies}) =>{
   return(
     <div>
     <form id='loginform' onSubmit={submitLogin}>
+          <div class="form-group">
               <label htmlFor='username'>Username:</label>
               <input
                 type='text'
                 id='username'
+                class ='form-control'
+                placeholder='Ingrese su usuario'
                 onChange={(event) => setUsername(event.target.value)}
               ></input>
+              </div>
+              <div class="form-group">
               <label htmlFor='password'>Password:</label>
               <input
                 type='password'
                 id='pass'
-                onChange={(event) => setPass(event.target.value)}
+                class ='form-control'
+                placeholder='Ingrese su clave'
+                onChange={(event) => setPassword(event.target.value)}
               ></input>
-              <button type='submit'>Login</button>
+              </div>
+              <button type='submit' class= 'btn btn-primary'>Login</button>
             </form>
             <button onClick={()=>navigate('/register')}>No tengo cuenta papu</button>
             </div>
